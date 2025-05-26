@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comanche AR</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  <style>
+    body { font-family: sans-serif; background: #ffffff; text-align: center; padding: 1em; }
+    video { width: 360px; max-width: 90%; border: 3px solid #3e7db4; border-radius: 12px; margin-top: 1em; }
+    .word-output { font-size: 1.5em; margin-top: 1em; color: #3e7db4; }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="CLCPC Logo" style="max-width: 200px; margin-bottom: 1em;">
+<h1>Comanche AR Word Viewer</h1>
+  <video id="video" autoplay playsinline muted></video>
+  <div class="word-output" id="output">Loading model...</div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker Registered'));
+    }
+  </script>
+</body>
+</html>
