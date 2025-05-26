@@ -1,10 +1,17 @@
+
 let model;
 const video = document.getElementById('video');
 const output = document.getElementById('output');
 const dictionary = {
   "dog": "sarii",
   "cat": "waʔoo",
-  "car": "nabukuwaa"
+  "car": "nabukuwaa",
+  "person": "nʉmʉ",
+  "book": "tʉboopʉ̠",
+  "bottle": "boʔso",
+  "cell phone": "kwasawʉhkatʉ",
+  "chair": "taka",
+  "tv": "nakutsʉnʉ"
 };
 
 function playAudio(word) {
@@ -16,6 +23,7 @@ function startCamera() {
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
       video.srcObject = stream;
+      output.textContent = "Point at an object to learn the word.";
     })
     .catch(err => {
       output.textContent = "Camera access denied or not available.";
@@ -33,15 +41,13 @@ async function detectFrame() {
     } else {
       output.textContent = `Detected: ${label} (no Comanche match)`;
     }
-  } else {
-    output.textContent = "No objects detected.";
   }
   requestAnimationFrame(detectFrame);
 }
 
 async function loadModelAndStart() {
   model = await cocoSsd.load();
-  output.textContent = "Model loaded.";
+  output.textContent = "Model loaded. Starting camera...";
   detectFrame();
 }
 
