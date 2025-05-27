@@ -8,9 +8,9 @@ const dictionary = {
   "car": "nabukuwaa",
   "person": "nʉmʉ",
   "book": "tʉboopʉ̠",
-  "bottle": "boʔso",
+  "bottle": "aawo",
   "cell phone": "kwasawʉhkatʉ",
-  "chair": "taka",
+  "chair": "nakarʉ",
   "tv": "nakutsʉnʉ"
 };
 
